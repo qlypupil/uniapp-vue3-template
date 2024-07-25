@@ -2,11 +2,11 @@
  * @name createVitePlugins
  * @description 封装plugins数组统一调用
  */
-import uniPlugin from '@dcloudio/vite-plugin-uni';
-import type { PluginOption } from 'vite';
-import { AutoImportDeps } from './autoImport';
-import { AutoRegistryComponents } from './component';
-import { ConfigUnoCSSPlugin } from './unocss';
+import uniPlugin from '@dcloudio/vite-plugin-uni'
+import type { PluginOption } from 'vite'
+import { AutoImportDeps } from './autoImport'
+import { AutoRegistryComponents } from './component'
+import { ConfigUnoCSSPlugin } from './unocss'
 // import { ConfigImageminPlugin } from './imagemin';
 // import { ReplaceUrlPlugin } from './replaceUrl';
 // import { CleanImagePlugin } from './cleanImage';
@@ -20,8 +20,8 @@ export default function createVitePlugins(isBuild: boolean) {
     // 自动按需引入组件(注意：需注册至 uni 之前，否则不会生效)
     AutoRegistryComponents(),
     // uni支持(兼容性写法，当type为module时，必须要这样写)
-    (uniPlugin as any).default(),
-  ];
+    (uniPlugin as any).default()
+  ]
 
   if (isBuild) {
     const buildPlugins: (PluginOption | PluginOption[])[] = [
@@ -33,9 +33,9 @@ export default function createVitePlugins(isBuild: boolean) {
       // CleanImagePlugin()
       // 打包视图分析
       // VisualizerPlugin(),
-    ];
-    vitePlugins.push(...buildPlugins);
+    ]
+    vitePlugins.push(...buildPlugins)
   }
 
-  return vitePlugins;
+  return vitePlugins
 }

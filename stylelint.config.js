@@ -4,12 +4,12 @@ export default {
   overrides: [
     {
       files: ['**/*.(scss|css|vue|html)'],
-      customSyntax: 'postcss-scss',
+      customSyntax: 'postcss-scss'
     },
     {
       files: ['**/*.(html|vue)'],
-      customSyntax: 'postcss-html',
-    },
+      customSyntax: 'postcss-html'
+    }
   ],
   ignoreFiles: [
     '**/*.js',
@@ -20,7 +20,7 @@ export default {
     '**/*.md',
     '**/*.yaml',
     'dist/*',
-    'uni_modules/*',
+    'uni_modules/*'
   ],
   rules: {
     'import-notation': 'string',
@@ -29,14 +29,14 @@ export default {
     'selector-pseudo-element-no-unknown': [
       true,
       {
-        ignorePseudoElements: ['v-deep'],
-      },
+        ignorePseudoElements: ['v-deep']
+      }
     ],
     'selector-pseudo-class-no-unknown': [
       true,
       {
-        ignorePseudoClasses: ['deep'],
-      },
+        ignorePseudoClasses: ['deep']
+      }
     ],
     'selector-type-no-unknown': [true, { ignoreTypes: ['page', 'radio', 'checkbox', 'scroll-view'] }],
     'order/properties-order': [
@@ -110,7 +110,7 @@ export default {
       'box-shadow',
       'text-shadow',
       'resize',
-      'transition',
-    ],
-  },
-};
+      'transition'
+    ]
+  }
+}

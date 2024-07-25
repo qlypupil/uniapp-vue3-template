@@ -19,17 +19,17 @@
 </template>
 
 <script setup lang="ts">
-import { useUserStore } from '@/store';
+import { useUserStore } from '@/store'
 
-const title = ref<string>();
-title.value = import.meta.env.VITE_APP_TITLE;
+const title = ref<string>()
+title.value = import.meta.env.VITE_APP_TITLE
 
-const store = useUserStore();
-console.log('store.user_name', store.user_name);
+const store = useUserStore()
+console.log('store.user_name', store.user_name)
 
-const showAgreePrivacy = ref(false);
+const showAgreePrivacy = ref(false)
 // 同意隐私协议
 function handleAgree() {
-  console.log('同意隐私政策');
+  console.log('同意隐私政策')
 }
 </script>

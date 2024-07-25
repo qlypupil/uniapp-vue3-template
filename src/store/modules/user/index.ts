@@ -1,59 +1,59 @@
-import { defineStore } from 'pinia';
-import type { UserState, providerType } from './types';
+import { defineStore } from 'pinia'
+import type { UserState, providerType } from './types'
 import {
   getUserProfile,
   loginByCode,
   login as userLogin,
-  logout as userLogout,
-} from '@/api/user/index';
-import type { LoginParams } from '@/api/user/types';
-import { clearToken, setToken } from '@/utils/auth';
+  logout as userLogout
+} from '@/api/user/index'
+import type { LoginParams } from '@/api/user/types'
+import { clearToken, setToken } from '@/utils/auth'
 
 const useUserStore = defineStore('user', {
   state: (): UserState => ({
     user_id: '',
     user_name: '江阳小道',
     avatar: '',
-    token: '',
+    token: ''
   }),
   getters: {
     userInfo(state: UserState): UserState {
-      return { ...state };
-    },
+      return { ...state }
+    }
   },
   actions: {
     // 设置用户的信息
     setInfo(partial: Partial<UserState>) {
-      this.$patch(partial);
+      this.$patch(partial)
     },
     // 重置用户信息
     resetInfo() {
-      this.$reset();
+      this.$reset()
     },
     // 获取用户信息
     async info() {
-      const result = await getUserProfile();
-      this.setInfo(result);
+      const result = await getUserProfile()
+      this.setInfo(result)
     },
     // 异步登录并存储token
     login(loginForm: LoginParams) {
       return new Promise((resolve, reject) => {
         userLogin(loginForm).then((res) => {
-          const token = res.token;
+          const token = res.token
           if (token) {
-            setToken(token);
+            setToken(token)
           }
-          resolve(res);
+          resolve(res)
         }).catch((error) => {
-          reject(error);
-        });
-      });
+          reject(error)
+        })
+      })
     },
     // Logout
     async logout() {
-      await userLogout();
-      this.resetInfo();
-      clearToken();
+      await userLogout()
+      this.resetInfo()
+      clearToken()
     },
     // 小程序授权登录
     authLogin(provider: providerType = 'weixin') {
@@ -62,21 +62,21 @@ const useUserStore = defineStore('user', {
           provider,
           success: async (result: UniApp.LoginRes) => {
             if (result.code) {
-              const res = await loginByCode({ code: result.code });
-              resolve(res);
+              const res = await loginByCode({ code: result.code })
+              resolve(res)
             }
             else {
-              reject(new Error(result.errMsg));
+              reject(new Error(result.errMsg))
             }
           },
           fail: (err: any) => {
-            console.error(`login error: ${err}`);
-            reject(err);
-          },
-        });
-      });
-    },
-  },
-});
+            console.error(`login error: ${err}`)
+            reject(err)
+          }
+        })
+      })
+    }
+  }
+})
 
-export default useUserStore;
+export default useUserStore

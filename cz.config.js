@@ -11,7 +11,7 @@ export default {
     footerPrefixesSelect: '选择关联issue前缀（可选）:',
     customFooterPrefix: '输入自定义issue前缀 :',
     footer: '列举关联issue (可选) 例如: #31, #I3244 :\n',
-    confirmCommit: '是否提交或修改commit ?',
+    confirmCommit: '是否提交或修改commit ?'
   },
   types: [
     { value: 'feat', name: 'feat:     新增功能 | A new feature', emoji: ':sparkles:' },
@@ -24,7 +24,7 @@ export default {
     { value: 'build', name: 'build:    构建相关 | Changes that affect the build system or external dependencies', emoji: ':package:' },
     { value: 'ci', name: 'ci:       持续集成 | Changes to our CI configuration files and scripts', emoji: ':ferris_wheel:' },
     { value: 'chore', name: 'chore:    其他修改 | Other changes that don\'t modify src or test files', emoji: ':hammer:' },
-    { value: 'revert', name: 'revert:   回退代码 | Reverts a previous commit', emoji: ':rewind:' },
+    { value: 'revert', name: 'revert:   回退代码 | Reverts a previous commit', emoji: ':rewind:' }
   ],
   useEmoji: false,
   emojiAlign: 'center',
@@ -54,5 +54,5 @@ export default {
   defaultBody: '',
   defaultIssues: '',
   defaultScope: '',
-  defaultSubject: '',
-};
+  defaultSubject: ''
+}

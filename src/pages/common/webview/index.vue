@@ -3,10 +3,10 @@
 </template>
 
 <script setup lang="ts">
-const url = ref<string>('');
+const url = ref<string>('')
 
 onLoad((params: any) => {
   if (params.url)
-    url.value = params.url;
-});
+    url.value = params.url
+})
 </script>

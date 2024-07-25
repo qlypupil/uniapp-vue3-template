@@ -1,4 +1,4 @@
-export type RoleType = '' | '*' | 'user';
+export type RoleType = '' | '*' | 'user'
 export interface UserState {
   user_id?: string;
   user_name?: string;
@@ -13,4 +13,4 @@ export type providerType =
   | 'xiaomi'
   | 'apple'
   | 'univerify'
-  | undefined;
+  | undefined

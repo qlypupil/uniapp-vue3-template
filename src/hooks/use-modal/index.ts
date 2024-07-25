@@ -11,11 +11,11 @@ export default function useModal() {
         confirmColor: '#1677FF',
         success: res => resolve(res),
         fail: () => reject(new Error('Alert 调用失败 !')),
-        ...options,
-      });
-    });
-  };
+        ...options
+      })
+    })
+  }
   return {
-    showModal,
-  };
+    showModal
+  }
 }

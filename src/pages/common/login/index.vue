@@ -50,49 +50,49 @@
 </template>
 
 <script setup lang="ts">
-import uCode from 'uview-plus/components/u-code/u-code.vue';
-import type { CSSProperties } from 'vue';
-import { setToken } from '@/utils/auth';
+import uCode from 'uview-plus/components/u-code/u-code.vue'
+import type { CSSProperties } from 'vue'
+import { setToken } from '@/utils/auth'
 
-const tel = ref<string>('18502811111');
-const code = ref<string>('1234');
-const tips = ref<string>();
-const uCodeRef = ref<InstanceType<typeof uCode> | null>(null);
+const tel = ref<string>('18502811111')
+const code = ref<string>('1234')
+const tips = ref<string>()
+const uCodeRef = ref<InstanceType<typeof uCode> | null>(null)
 
 const inputStyle = computed<CSSProperties>(() => {
-  const style = {} as CSSProperties;
+  const style = {} as CSSProperties
   if (tel.value && code.value) {
-    style.color = '#fff';
-    style.backgroundColor = uni.$u.color.warning;
+    style.color = '#fff'
+    style.backgroundColor = uni.$u.color.warning
   }
-  return style;
-});
+  return style
+})
 
 function codeChange(text: string) {
-  tips.value = text;
+  tips.value = text
 }
 
 function getCode() {
   if (uCodeRef.value?.canGetCode) {
     // 模拟向后端请求验证码
     uni.showLoading({
-      title: '正在获取验证码',
-    });
+      title: '正在获取验证码'
+    })
     setTimeout(() => {
-      uni.hideLoading();
-      uni.$u.toast('验证码已发送');
+      uni.hideLoading()
+      uni.$u.toast('验证码已发送')
       // 通知验证码组件内部开始倒计时
-      uCodeRef.value?.start();
-    }, 1000);
+      uCodeRef.value?.start()
+    }, 1000)
   }
   else {
-    uni.$u.toast('倒计时结束后再发送');
+    uni.$u.toast('倒计时结束后再发送')
   }
 }
 function submit() {
   if (uni.$u.test.mobile(tel.value)) {
-    setToken('1234567890');
-    uni.reLaunch({ url: '/pages/tab/home/index' });
+    setToken('1234567890')
+    uni.reLaunch({ url: '/pages/tab/home/index' })
   }
 }
 </script>

@@ -1,11 +1,11 @@
-import antfu from '@antfu/eslint-config';
+import antfu from '@antfu/eslint-config'
 
 export default antfu(
   {
-    unocss: true,
+    unocss: true
   },
   {
-    ignores: ['uni_modules'],
+    ignores: ['uni_modules']
   },
   {
     files: ['**/*.vue'],
@@ -13,19 +13,19 @@ export default antfu(
       'vue/block-order': [
         'error',
         {
-          order: ['template', 'script', 'style'],
-        },
-      ],
-    },
+          order: ['template', 'script', 'style']
+        }
+      ]
+    }
   },
   {
     rules: {
-      // 需要尾随逗号
-      'comma-dangle': ['error', 'only-multiline'],
       // 允许console
       'no-console': 'off',
-      // 需要分号
-      'style/semi': ['error', 'always'],
+      // 不需要尾随逗号
+      'style/comma-dangle': ['error', 'never'],
+      // 不需要分号
+      'style/semi': ['error', 'never'],
       // 块内的空行
       'padded-blocks': ['error', 'never'],
       // 顶级函数应使用 function 关键字声明
@@ -41,14 +41,14 @@ export default antfu(
       'style/member-delimiter-style': ['error', {
         multiline: {
           delimiter: 'semi',
-          requireLast: true,
+          requireLast: true
         },
         singleline: {
           delimiter: 'semi',
-          requireLast: false,
+          requireLast: false
         },
-        multilineDetection: 'brackets',
-      }],
-    },
-  },
-);
+        multilineDetection: 'brackets'
+      }]
+    }
+  }
+)

@@ -42,8 +42,7 @@ function requestInterceptors() {
         const sessionObj = storage.getJSON('sessionObj')
         if (!sessionObj) {
           storage.setJSON('sessionObj', requestObj)
-        }
-        else {
+        } else {
           const s_url = sessionObj.url // 请求地址
           const s_data = sessionObj.data // 请求数据
           const s_time = sessionObj.time // 请求时间
@@ -52,8 +51,7 @@ function requestInterceptors() {
             const message = '数据正在处理，请勿重复提交'
             console.warn(`[${s_url}]: ${message}`)
             return Promise.reject(new Error(message))
-          }
-          else {
+          } else {
             storage.setJSON('sessionObj', requestObj)
           }
         }
@@ -97,8 +95,7 @@ function responseInterceptors() {
           isRefreshing = false
           // 重新执行本次请求
           return uni.$u.http.request(config)
-        }
-        else {
+        } else {
           return new Promise((resolve) => {
             // 将resolve放进队列，用一个函数形式来保存，等登录后直接执行
             requestQueue.push(() => {
@@ -115,8 +112,7 @@ function responseInterceptors() {
       // 如果需要catch返回，则进行reject
       if (custom?.catch) {
         return Promise.reject(data)
-      }
-      else {
+      } else {
         // 否则返回一个pending中的promise
         return new Promise(() => {})
       }

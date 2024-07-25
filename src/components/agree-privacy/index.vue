@@ -96,8 +96,7 @@ function checkPrivacySetting() {
           // 需要弹出隐私协议
           openAgreePrivacy()
         }
-      }
-      else {
+      } else {
         // 用户已经同意过隐私协议，所以不需要再弹出隐私协议，也能调用已声明过的隐私接口
         // wx.getUserProfile()
       }

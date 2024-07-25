@@ -21,8 +21,7 @@ list.forEach((item) => {
           uni.reLaunch({ url: '/' })
 
         return true
-      }
-      else {
+      } else {
         if (checkWhite(to.url))
           return true
 

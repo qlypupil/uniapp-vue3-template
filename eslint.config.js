@@ -26,6 +26,8 @@ export default antfu(
       'style/comma-dangle': ['error', 'never'],
       // 不需要分号
       'style/semi': ['error', 'never'],
+      // 控制花括号（大括号）的样式
+      'style/brace-style': ['error', '1tbs'],
       // 块内的空行
       'padded-blocks': ['error', 'never'],
       // 顶级函数应使用 function 关键字声明
@@ -35,7 +37,7 @@ export default antfu(
       // 禁止未使用的捕获组
       'regexp/no-unused-capturing-group': 'off',
       // 对所有控制语句强制实施一致的大括号样式
-      // curly: ["error", "multi", "consistent"],
+      // 'curly': ['error', 'multi', 'consistent'],
       'curly': 'off',
       // 允许接口和类型别名中的成员之间使用三个分隔符
       'style/member-delimiter-style': ['error', {

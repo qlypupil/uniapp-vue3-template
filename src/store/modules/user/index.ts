@@ -64,8 +64,7 @@ const useUserStore = defineStore('user', {
             if (result.code) {
               const res = await loginByCode({ code: result.code })
               resolve(res)
-            }
-            else {
+            } else {
               reject(new Error(result.errMsg))
             }
           },

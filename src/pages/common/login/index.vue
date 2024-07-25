@@ -84,8 +84,7 @@ function getCode() {
       // 通知验证码组件内部开始倒计时
       uCodeRef.value?.start()
     }, 1000)
-  }
-  else {
+  } else {
     uni.$u.toast('倒计时结束后再发送')
   }
 }
